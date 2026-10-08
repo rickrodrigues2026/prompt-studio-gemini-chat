@@ -1,70 +1,192 @@
 # Prompt Studio
 
-A bilingual AI chat built with Python, Streamlit, and the Gemini API. The interface opens in English by default, with Portuguese available from the language selector.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.40%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Gemini](https://img.shields.io/badge/Gemini-API-8E75FF?logo=google&logoColor=white)](https://ai.google.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Preview
+Prompt Studio is a bilingual AI chat application built with Python, Streamlit, and the Gemini API. The app is designed with English as the primary user experience, while Portuguese support is included for accessibility and broader usability.
 
-Prompt Studio provides a focused chat workspace with conversation history, starter prompts, clear API status, and helpful error states. The interface remains usable as a preview before an API key is configured.
+## Why this project stands out
+
+- Clear, recruiter-friendly portfolio presentation
+- Practical use of AI API integration in a real user-facing app
+- Bilingual UX with English-first design and Portuguese localization
+- Secure secret management for local development and deployment
+- Clean, readable structure for a small production-style project
 
 ## Features
 
-- English-first interface with full Portuguese localization
-- Gemini chat completions through Google's OpenAI-compatible API
-- Conversation history and one-click starter prompts
-- API key stored outside source code, with local and Streamlit Cloud setup
-- Localized handling for missing keys, rate limits, authentication, and connection errors
-- Responsive Streamlit layout
+- English-first interface with complete Portuguese localization
+- Gemini-powered chat using the OpenAI-compatible API endpoint
+- Starter prompts for faster interaction and onboarding
+- Conversation history within the current session
+- API status and error feedback for missing keys, auth failures, rate limits, and connectivity issues
+- Responsive Streamlit layout with custom theming
+
+## Tech stack
+
+- Python 3.10+
+- Streamlit
+- OpenAI Python SDK
+- Google Gemini API
+
+## Project structure
+
+```text
+prompt-studio-gemini-chat/
+├── app.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── .gitignore
+├── .streamlit/
+│   ├── config.toml
+│   ├── secrets.toml
+│   └── secrets.toml.example
+└── .venv/
+```
 
 ## Run locally
 
-Requires Python 3.10 or newer.
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/rickrodrigues2026/prompt-studio-gemini-chat.git
+cd prompt-studio-gemini-chat
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+On Windows PowerShell:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
+python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+```
+
+### 4. Configure API key
+
+Copy the example secrets file:
+
+```bash
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+```
+
+On Windows PowerShell:
+
+```powershell
 Copy-Item .streamlit/secrets.toml.example .streamlit/secrets.toml
 ```
 
-Add a Gemini API key to `.streamlit/secrets.toml`:
+Then add your Gemini API key:
 
 ```toml
 GEMINI_API_KEY = "your-gemini-api-key"
 ```
 
-Get a key from [Google AI Studio](https://aistudio.google.com/apikey), then start the app:
+### 5. Start the app
 
-```powershell
+```bash
 streamlit run app.py
 ```
 
-The example secrets file is safe to commit; `.streamlit/secrets.toml` is ignored by Git. Never publish a real API key.
+## Deployment
 
-## Deploy
+This project is ready for deployment on Streamlit Community Cloud.
 
-Deploy the repository with [Streamlit Community Cloud](https://share.streamlit.io/), set `app.py` as the entry point, and add `GEMINI_API_KEY` in the app's Secrets settings.
+1. Push the repository to GitHub.
+2. Open Streamlit Community Cloud.
+3. Create a new app.
+4. Set the app entry point to `app.py`.
+5. Add `GEMINI_API_KEY` in the app secrets settings.
 
-## Tech stack
+## Security note
 
-Python · Streamlit · OpenAI Python SDK · Gemini API
+Never commit a real API key. Keep secrets in `.streamlit/secrets.toml` or in your platform secret manager. The repository tracks only the example file.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for development and PR guidelines.
 
 ---
 
 # Prompt Studio (Português)
 
-Um chat bilíngue com IA, criado com Python, Streamlit e a API Gemini. A interface abre em inglês por padrão; selecione português no menu lateral.
+O Prompt Studio é uma aplicação de chat com IA em dois idiomas, desenvolvida com Python, Streamlit e a API Gemini. A experiência foi pensada em inglês como idioma principal, com suporte em português para acessibilidade e melhor alcance de público.
+
+## Por que esse projeto chama atenção
+
+- Apresentação clara e profissional para portfólio
+- Uso prático de integração com API de IA em um app real
+- UX bilíngue com foco em inglês e tradução para português
+- Gerenciamento seguro de chaves em ambiente local e nuvem
+- Estrutura organizada e fácil de compreender para um projeto de pequeno porte
 
 ## Recursos
 
 - Interface em inglês com localização completa para português
-- Respostas do Gemini pela API compatível com OpenAI
-- Histórico da conversa e sugestões para começar
-- Chave de API protegida fora do código-fonte
-- Mensagens de erro traduzidas e interface responsiva
-- Tela de demonstração disponível mesmo sem configurar a chave
+- Chat com Gemini usando a API compatível com OpenAI
+- Sugestões iniciais para deixar a experiência mais fluida
+- Histórico de conversa na sessão atual
+- Indicadores de status da API e mensagens de erro para chave ausente, autenticação, limite de requisições e conexão
+- Layout responsivo com visual customizado em Streamlit
 
-## Executar localmente
+## Como executar localmente
 
-É necessário ter Python 3.10 ou superior. Siga as instruções de instalação da seção [Run locally](#run-locally) e configure sua chave Gemini em `.streamlit/secrets.toml`. Para iniciar, execute `streamlit run app.py`.
+```bash
+git clone https://github.com/rickrodrigues2026/prompt-studio-gemini-chat.git
+cd prompt-studio-gemini-chat
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+streamlit run app.py
+```
 
-Para publicar, use o [Streamlit Community Cloud](https://share.streamlit.io/) e configure `GEMINI_API_KEY` na área de Secrets do aplicativo.
+No Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+Copy-Item .streamlit/secrets.toml.example .streamlit/secrets.toml
+streamlit run app.py
+```
+
+Edite o arquivo `.streamlit/secrets.toml` e adicione sua chave Gemini:
+
+```toml
+GEMINI_API_KEY = "sua-chave-gemini"
+```
+
+## Implantação
+
+O projeto também pode ser implantado no Streamlit Community Cloud. Configure `app.py` como ponto de entrada e adicione `GEMINI_API_KEY` na seção de secrets da plataforma.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte [LICENSE](LICENSE).
+
+## Contribuições
+
+Contribuições são bem-vindas. Consulte [CONTRIBUTING.md](CONTRIBUTING.md).
